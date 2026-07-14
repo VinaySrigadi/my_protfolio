@@ -1,4 +1,5 @@
 import { generatePageMetadata } from "@/lib/metadata";
+import { ExperienceSection } from "@/components/sections/experience-section";
 
 export const metadata = generatePageMetadata({
   title: "Experience",
@@ -10,9 +11,7 @@ export const metadata = generatePageMetadata({
 export default function ExperiencePage() {
   return (
     <main aria-label="Experience page" className="min-h-dvh bg-[#09090B]">
-      <div className="flex items-center justify-center min-h-dvh">
-        <p className="text-[#A1A1AA] font-mono text-sm">Experience — Phase 5</p>
-      </div>
+      <ExperienceSection />
     </main>
   );
 }

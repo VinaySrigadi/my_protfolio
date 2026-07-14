@@ -1,0 +1,27 @@
+---
+title: "Plant Identification Mobile App"
+description: "An offline mobile application utilizing TensorFlow Lite to deliver sub-200ms real-time botanical classification."
+publishedAt: "2024-06-01"
+tags: "Flutter, Dart, TensorFlow Lite, CNN, Mobile AI, Computer Vision"
+---
+
+## Overview
+
+The Plant Identification Mobile App bridges the gap between deep learning and mobile engineering by bringing a high-accuracy Convolutional Neural Network (CNN) directly to the edge. Built with Flutter and TensorFlow Lite, the application allows users to identify plant species instantly without requiring an internet connection.
+
+## Edge AI Engineering
+
+Deploying computer vision models in the cloud introduces latency and requires constant connectivity. For outdoor botanical identification, offline availability is critical.
+
+- **Model Optimization**: I trained and quantized a CNN, converting it into the highly compressed `.tflite` format. This drastic reduction in model size allowed it to be bundled directly within the mobile application bundle.
+- **Performance**: The optimization techniques resulted in **sub-200ms inference latency** directly on the mobile CPU/NPU.
+
+## Results
+
+- **Accuracy**: Achieved **85%+ classification accuracy** across 30 distinct plant species.
+- **User Experience**: By using Flutter, the application provides a smooth, native-like experience on both iOS and Android. Users can point their camera at a leaf or flower and see the classification bounding boxes and probabilities update in near real-time, completely offline.
+
+## Technologies Used
+- **Frontend Framework**: Flutter (Dart)
+- **Machine Learning Engine**: TensorFlow Lite
+- **Model Architecture**: Convolutional Neural Network (CNN)

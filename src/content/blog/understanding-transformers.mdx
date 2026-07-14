@@ -1,0 +1,107 @@
+---
+title: "Understanding Transformers: From Theory to Production"
+description: "A deep dive into the architecture of Transformers, how attention mechanisms work, and practical tips for deploying them in production environments."
+publishedAt: "2024-05-12"
+tags: "Machine Learning, Deep Learning, Transformers, AI"
+featured: "true"
+---
+
+Transformers have completely revolutionized the field of natural language processing (NLP) and are now making massive waves in computer vision, audio processing, and beyond. 
+
+In this post, we'll break down the core components of the Transformer architecture and discuss how to take a model from a PyTorch script to a production-ready API.
+
+## The Self-Attention Mechanism
+
+At the heart of the Transformer is the self-attention mechanism. Unlike RNNs that process sequences sequentially, self-attention allows the model to look at the entire sequence simultaneously and determine which parts are most important for understanding the current token.
+
+```python
+import torch
+import torch.nn as nn
+import math
+
+class SelfAttention(nn.Module):
+    def __init__(self, embed_size, heads):
+        super(SelfAttention, self).__init__()
+        self.embed_size = embed_size
+        self.heads = heads
+        self.head_dim = embed_size // heads
+
+        assert (
+            self.head_dim * heads == embed_size
+        ), "Embedding size needs to be divisible by heads"
+
+        self.values = nn.Linear(self.head_dim, self.head_dim, bias=False)
+        self.keys = nn.Linear(self.head_dim, self.head_dim, bias=False)
+        self.queries = nn.Linear(self.head_dim, self.head_dim, bias=False)
+        self.fc_out = nn.Linear(heads * self.head_dim, embed_size)
+
+    def forward(self, values, keys, query, mask):
+        # Get number of training examples
+        N = query.shape[0]
+
+        value_len, key_len, query_len = values.shape[1], keys.shape[1], query.shape[1]
+
+        # Split the embedding into self.heads different pieces
+        values = values.reshape(N, value_len, self.heads, self.head_dim)
+        keys = keys.reshape(N, key_len, self.heads, self.head_dim)
+        queries = query.reshape(N, query_len, self.heads, self.head_dim)
+
+        values = self.values(values)
+        keys = self.keys(keys)
+        queries = self.queries(queries)
+
+        # Einsum does matrix multiplication for query*keys for each training example
+        # with every other training example, don't be confused by einsum
+        # it's just how we multiply tensors
+        energy = torch.einsum("nqhd,nkhd->nhqk", [queries, keys])
+
+        if mask is not None:
+            energy = energy.masked_fill(mask == 0, float("-1e20"))
+
+        attention = torch.softmax(energy / (self.embed_size ** (1 / 2)), dim=3)
+
+        out = torch.einsum("nhql,nlhd->nqhd", [attention, values]).reshape(
+            N, query_len, self.heads * self.head_dim
+        )
+
+        out = self.fc_out(out)
+        return out
+```
+
+As you can see in the implementation above, we split the embeddings into multiple heads, compute the dot product between queries and keys, and apply a softmax function to get the attention weights.
+
+## Deploying to Production
+
+When moving to production, pure PyTorch inference is often too slow. Here are the steps I typically follow to optimize Transformer inference:
+
+1. **Export to ONNX**: Convert the dynamic PyTorch graph to a static ONNX graph.
+2. **Quantization**: Apply INT8 or FP16 quantization. For large language models, INT8 weight-only quantization (like AWQ or GPTQ) is essential.
+3. **TensorRT Compilation**: Compile the ONNX model using NVIDIA TensorRT to fuse layers and optimize memory access patterns for the specific GPU architecture you are deploying on.
+
+### A Simple FastAPI Wrapper
+
+Once optimized, serving the model is straightforward with FastAPI:
+
+```python
+from fastapi import FastAPI
+from pydantic import BaseModel
+import onnxruntime as ort
+
+app = FastAPI()
+session = ort.InferenceSession("model_optimized.onnx", providers=['CUDAExecutionProvider'])
+
+class Request(BaseModel):
+    text: str
+
+@app.post("/predict")
+async def predict(req: Request):
+    # Tokenization logic here...
+    inputs = {"input_ids": ...}
+    
+    outputs = session.run(None, inputs)
+    return {"prediction": outputs[0].tolist()}
+```
+
+## Conclusion
+
+Transformers are powerful, but they require careful engineering to deploy efficiently. By understanding the underlying math and utilizing optimization libraries like TensorRT, you can achieve sub-millisecond latencies even for complex models.

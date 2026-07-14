@@ -1,0 +1,323 @@
+% \documentclass[10pt, letterpaper]{article}
+\documentclass[10pt, a4paper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, 
+    top=1 cm, 
+    bottom=1 cm, 
+    left=1 cm, 
+    right=1 cm, 
+    footskip=1.0 cm, 
+]{geometry} 
+\usepackage{titlesec} 
+\usepackage{tabularx} 
+\usepackage{array} 
+\usepackage[dvipsnames]{xcolor} 
+\definecolor{primaryColor}{RGB}{0, 79, 144} 
+\usepackage{enumitem} 
+\usepackage{fontawesome5} 
+\usepackage{amsmath} 
+\usepackage[
+    pdftitle={Vinay Srigadi Resume},
+    pdfauthor={Vinay Srigadi},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} 
+\usepackage[pscoord]{eso-pic} 
+\usepackage{calc} 
+\usepackage{bookmark} 
+\usepackage{lastpage} 
+\usepackage{changepage} 
+\usepackage{paracol} 
+\usepackage{ifthen} 
+\usepackage{needspace} 
+\usepackage{iftex} 
+
+% Ensure machine-readable PDF:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+% Settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty} 
+\setcounter{secnumdepth}{0} 
+\setlength{\parindent}{0pt} 
+\setlength{\topskip}{0pt} 
+\setlength{\columnsep}{0cm} 
+\makeatletter
+\let\ps@customFooterStyle\ps@plain 
+{}{} 
+\makeatother
+\pagestyle{customFooterStyle}
+
+% ---- Uniform Section Style ----
+\titleformat{\section}
+  {\needspace{4\baselineskip}\bfseries\large}
+  {}
+  {0pt}
+  {}
+  [\vspace{2pt}\titlerule]
+
+\titlespacing{\section}
+  {0pt}     % left
+  {0.35cm}  % before
+  {0.20cm}  % after
+
+
+\renewcommand\labelitemi{$\circ$} 
+
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{\end{itemize}}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{\end{itemize}}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0.2 cm}{0.2 cm}
+}{\end{adjustwidth}}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{\par\kern\topsep}
+
+% Save href
+\let\hrefWithoutArrow\href
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces}
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
+
+\begin{header}
+    \textbf{\fontsize{24 pt}{24 pt}\selectfont Vinay Srigadi}
+
+    \vspace{0.15 cm}
+
+    {\small Bowenpally, Hyderabad}
+
+    \vspace{0.3 cm}
+
+\normalsize
+\mbox{\hrefWithoutArrow{mailto:vsrigadi@gmail.com}{\color{black}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}vsrigadi@gmail.com}}%
+\kern 0.25 cm%
+\AND%
+\kern 0.25 cm%
+\mbox{\hrefWithoutArrow{tel:+919004979349}{\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}+919004979349}}%
+\kern 0.25 cm%
+\AND%
+\kern 0.25 cm%
+\mbox{\hrefWithoutArrow{https://linkedin.com/in/VinaySrigadi}{\color{black}{\footnotesize\faLinkedinIn}\hspace*{0.13cm}VinaySrigadi}}%
+\kern 0.25 cm%
+\AND%
+\kern 0.25 cm%
+\mbox{\hrefWithoutArrow{https://github.com/VinaySrigadi}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}VinaySrigadi}}%
+\end{header}
+
+
+\vspace{0.3 cm - 0.3 cm}
+
+% --- Professional Summary ---
+\section{Professional Summary}
+\begin{onecolentry}
+    AI/ML Engineer and Full-Stack Developer specializing in generative deep learning (VQ-VAE, Transformers, LSTM) and production-grade systems (React, FastAPI, Flutter, Docker). Deployed a 30M-parameter music-to-dance AI achieving 85\% beat accuracy on consumer hardware; presented original LSTM choreography research at NCNTAIA-2025 (national conference). CGPA 9.49 — seeking roles at the intersection of applied AI and scalable product engineering.
+\end{onecolentry}
+
+\vspace{0.1 cm}
+
+
+    
+
+% --- Experience ---
+\section{Internship Experience}
+\begin{twocolentry}{
+    \textit{IIIT Hyd, Gachibowli} \\ 
+    \textit{July 2025 – Sept 2025}}
+    \textbf{Tech Lead} \textit{Viswam.ai}
+\end{twocolentry}
+
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        \begin{highlights}
+\item Led full-stack development of the Corpus app (React), delivering multi-lingual support across 3 languages; redesigned task navigation flow reducing annotator clicks per task from 9 to 4, improving throughput for 20+ active users.
+\item Designed JWT-secured RESTful API with role-based access control, decoupling auth logic from UI layer and enabling safe multi-tenant access across the platform.
+\item Migrated intern tracking dashboard from Streamlit to React, cutting average page load time from ~4s to under 800ms and supporting 50+ concurrent users without backend changes.
+        \item Technologies: React, Flutter, Dart, Streamlit, REST APIs, Client-Server Architecture, UI/UX Design, Authentication & Security.
+        \end{highlights}
+    \end{onecolentry}
+
+    \vspace{0.2 cm}
+
+\begin{twocolentry}
+  { % Left Column Content
+    \textit{IEEE Hyderabad} \\
+    \mbox{\textit{May 2025 – June 2025}}
+  }
+  { % Right Column Content
+    \textbf{AI/ML Intern} \\
+    \textit{Presented at NCNTAIA-2025 Conference}
+  }
+\end{twocolentry}
+
+
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        \begin{highlights}
+\item Designed a sequence-to-sequence LSTM pipeline to synthesize beat-conditioned 3D skeletal motion from raw audio without using any pre-trained motion priors or pose databases.
+\item Designed a multi-modal data pipeline using MediaPipe for skeleton extraction and Librosa for audio feature engineering, processing 100+ video clips to generate synchronized training pairs.
+\item Achieved 38.56\% PCK on a custom LSTM-based motion generation model — a strong baseline for novel choreography synthesis without pre-trained motion priors.
+   \item Technologies: Python, TensorFlow, Keras, MediaPipe.
+        \end{highlights}
+    \end{onecolentry}
+
+% --- Projects ---
+\section{Projects}
+
+\vspace{0.15 cm}
+
+\begin{twocolentry}{\textit{2026}}
+    \textbf{ AI-Based Music-to-Dance Generation System (Music2Dance AI)}
+\end{twocolentry}
+\begin{onecolentry}
+    \begin{highlights}
+               
+
+\item Architected an end-to-end generative AI platform trained on 1,510 professional AIST++
+  dance sequences, mapping 140-dim audio features to beat-synchronized 2D choreography
+  via VQ-VAE + Transformer.
+
+\item Trained VQ-VAE (512-code discrete codebook, 128-dim latent) achieving reconstruction
+  loss of 0.0013 with 100\% codebook utilization — zero dead codes or mode collapse.
+
+\item Developed 6-layer causal Transformer decoder (~30M parameters) with audio-conditioned
+  autoregressive generation; best validation loss: 2.5525.
+
+\item Engineered 5-layer anti-freeze diversity system achieving 50–70\% token diversity across
+  50+ test generations; ~85\% beat detection accuracy via Librosa BPM analysis.
+
+\item Deployed production-grade three-tier platform: Next.js 14 (Vercel) + FastAPI/Docker
+  (Render) + MongoDB Atlas; JWT-secured with async processing, generating 720×720
+  30FPS MP4 videos in 15–30 seconds on consumer hardware.
+
+\item Designed 6 formal algorithms and 9 UML diagrams; cited 30 academic references
+  including Vaswani et al. (2017), Li et al. AIST++ (2021), and Siyao et al. Bailando (2022).
+\item Technologies: Python, PyTorch, FastAPI, Next.js, MongoDB Atlas, FFmpeg
+    \end{highlights}
+\end{onecolentry}
+\begin{twocolentry}{\textit{2024}}
+    \textbf{Plant Identification Mobile App}
+\end{twocolentry}
+
+\begin{onecolentry}
+    \begin{highlights}
+        \item Deployed a TFLite CNN model for offline plant identification in Flutter, achieving sub-200ms inference latency with 85\%+ classification accuracy across 30 plant species.
+        \item Technologies: Flutter, Dart, TensorFlow Lite
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.15 cm}
+
+\begin{twocolentry}{\textit{2023}}
+    \textbf{Mental Health Mobile App}
+\end{twocolentry}
+
+\begin{onecolentry}
+    \begin{highlights}
+        \item Built and deployed a full-stack mental health app (Flutter + Flask + MongoDB Atlas) with Mistral-7B-powered conversational AI, mood tracking, and appointment scheduling; served as capstone showcasing end-to-end LLM deployment on commodity hardware.
+        \item Technologies: Flutter, Flask, MongoDB Atlas, Mistral-7B
+    \end{highlights}
+\end{onecolentry}
+
+% --- Technologies ---
+\section{Technologies}
+\begin{onecolentry}
+    \textbf{AI/ML:} PyTorch 2.1, TensorFlow/TFLite, Keras, Hugging Face, MediaPipe, OpenCV, Librosa, FFmpeg
+\end{onecolentry}
+\vspace{0.1 cm}
+\begin{onecolentry}
+    \textbf{Full-Stack:} React, Next.js 14, Flutter/Dart, FastAPI, Flask, TypeScript, TailwindCSS
+\end{onecolentry}
+\vspace{0.1 cm}
+\begin{onecolentry}
+    \textbf{Data \& Infra:} MongoDB Atlas, MySQL, Docker, AWS, Vercel, Render, CI/CD, Git
+\end{onecolentry}
+\vspace{0.1 cm}
+\begin{onecolentry}
+    \textbf{Languages:} Python, Dart, JavaScript/TypeScript, Java, C
+\end{onecolentry}
+
+% --- Education ---
+\section{Education}
+\begin{twocolentry}{\textit{Expected 2026}}
+    \textbf{Master of Computer Applications, Koneru Lakshmaiah Education Foundation} \\
+   
+\end{twocolentry}
+\begin{onecolentry}
+    \begin{highlights}
+        \item CGPA: 9.66
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.50 cm}   % <-- ADD this line here
+
+\begin{twocolentry}{\textit{2021 – 2024}}
+    \textbf{B.Sc.(Computer Science), Kishinchand Chellaram College, HSNC University} \\
+  
+\end{twocolentry}
+\begin{onecolentry}
+    \begin{highlights}
+        \item CGPA: 9.61
+    \end{highlights}
+\end{onecolentry}
+% --- Education ---
+
+\section{Certificate \& Achievements}
+
+\begin{onecolentry}
+    \begin{highlights}
+    \item \textbf{AWS Certifications:} Cloud Practitioner, Developer -- Associate, Machine Learning Engineer -- Associate.
+\item \textbf{Gold Medal – 1st Prize}, 13th All India Children \& Youth Art Competition, \textbf{Andhra Pradesh State Creativity \& Culture Commission}, Vijayawada (Feb 2026)
+\item Certificate of Presentation, \textbf{NCNTAIA-2025}, for \textit{``Choreography AI: Generating New Dance Steps''} — awarded by Anusandhan National Research Foundation
+\item Completed \textbf{AI with Machine Learning} workshop — Skilligence Edtech, BITS-Pilani Hyderabad Campus
+\item \textbf{Participation Certificate:} Qualified for Final Round of RAMpage V2.5 24-Hour Hackathon — KLH University, GeeksforGeeks, IEEE, and Algorand Blockchain Club
+\item Certificate of Participation – \textbf{SCIENT SPARK Startup Launchpad} (Jan–Mar 2025)
+\item \textbf{Virtual Internship in AI/ML} – V VUBE Software Solutions (Feb 2025)
+\item \textbf{Best Performance Award} – MCA Program
+\item \textbf{School Rank 1} – Secondary School Certificate (Grade 10 board), 83.8\%
+    \end{highlights}
+\end{onecolentry}
+
+\end{document}

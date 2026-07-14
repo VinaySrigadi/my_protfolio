@@ -1,0 +1,70 @@
+---
+title: "Why React Server Components Change Everything"
+description: "Exploring the paradigm shift brought by React Server Components (RSC) and how they bridge the gap between static generation and dynamic rendering."
+publishedAt: "2024-02-28"
+tags: "React, Next.js, Frontend, Architecture"
+featured: "false"
+---
+
+React Server Components (RSC) represent one of the biggest paradigm shifts in the React ecosystem since Hooks. For years, we've had to compromise between SEO-friendly static generation and rich, interactive client-side rendering. RSC changes this calculus entirely.
+
+## The Client-Side Problem
+
+In a traditional React SPA (Single Page Application), the browser downloads a large JavaScript bundle, parses it, and then executes it to render the UI. This is computationally expensive and slow on lower-end devices.
+
+Even with Server-Side Rendering (SSR) via frameworks like Next.js (Pages Router), we still had to hydrate the entire page on the client, meaning the JavaScript bundle size remained large.
+
+## Enter Server Components
+
+Server Components execute **only on the server**. Their code is never sent to the client. This means you can import heavy libraries (like a markdown parser or a database client) without bloating your client bundle.
+
+Here's an example of a Server Component in the Next.js App Router:
+
+```tsx
+import db from '@/lib/db'
+import { marked } from 'marked'
+
+// This component runs exclusively on the server
+export default async function BlogPost({ params }: { params: { slug: string } }) {
+  // We can query the database directly! No API route needed.
+  const post = await db.post.findUnique({
+    where: { slug: params.slug }
+  })
+
+  // We can use heavy libraries like 'marked' without sending them to the client
+  const htmlContent = marked.parse(post.content)
+
+  return (
+    <article>
+      <h1>{post.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+    </article>
+  )
+}
+```
+
+## The Best of Both Worlds
+
+The real power of RSC is that they seamlessly interleave with Client Components. You can have a Server Component that fetches data and passes it down to an interactive Client Component.
+
+```tsx
+import { LikeButton } from './like-button' // This is a Client Component
+
+export default async function PostCard({ id }) {
+  const post = await getPost(id) // Server-side fetch
+
+  return (
+    <div className="card">
+      <h2>{post.title}</h2>
+      {/* We pass the data to the client component */}
+      <LikeButton initialLikes={post.likes} postId={id} />
+    </div>
+  )
+}
+```
+
+In the `LikeButton.tsx` file, we simply add the `"use client"` directive at the top.
+
+## Conclusion
+
+React Server Components allow us to build applications that are as fast as static sites but as dynamic as SPAs. By intelligently splitting our component tree into server and client parts, we can achieve exceptional performance and superior developer experience.

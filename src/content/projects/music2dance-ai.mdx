@@ -1,0 +1,59 @@
+---
+title: "Music2Dance AI"
+description: "Architected an end-to-end generative AI platform mapping audio features to beat-synchronized 2D choreography via VQ-VAE + Transformer."
+publishedAt: "2026-05-01"
+tags: "Generative AI, Deep Learning, Audio Processing, FastAPI, VQ-VAE, Transformers, PyTorch, MongoDB, Next.js"
+---
+
+## Overview
+
+Music2Dance AI is a production-grade generative deep learning system that synthesizes highly realistic, beat-synchronized human choreography directly from raw audio files. Built entirely from scratch, it serves as an end-to-end pipeline covering everything from multi-modal dataset preprocessing to real-time asynchronous inference via a scalable full-stack web architecture.
+
+## The Problem
+
+Generating choreography is a complex cross-modal mapping problem. Music exists in the audio domain, characterized by rhythm, pitch, and tempo. Dance exists in the spatial-temporal domain, bounded by human kinematic constraints. Traditional rule-based engines produce rigid, unnatural movements.
+
+The challenge was to design a model capable of:
+1. Understanding the intricate relationship between audio beats and human motion.
+2. Generating temporally coherent motion sequences over long horizons without mode collapse.
+3. Deploying a 30M+ parameter model to be easily accessible to end-users without requiring local GPUs.
+
+## The Solution: VQ-VAE + Causal Transformer
+
+The architecture leverages a two-stage approach inspired by state-of-the-art works like Bailando (Siyao et al., 2022). 
+
+### Stage 1: Motion Quantization (VQ-VAE)
+To solve the problem of continuous spatial regression, I trained a Vector Quantized Variational Autoencoder (VQ-VAE). 
+- **Dataset**: Trained on 1,510 professional dance sequences from the AIST++ dataset.
+- **Architecture**: Mapped continuous 3D skeletal data into a discrete codebook of 512 codes (128-dimensional latent space).
+- **Results**: Achieved a reconstruction loss of `0.0013` with **100% codebook utilization** (zero dead codes), ensuring rich, diverse movement representations.
+
+### Stage 2: Cross-Modal Generation (Transformer)
+With motion discretized into tokens, choreography generation becomes a sequence-to-sequence translation task.
+- **Audio Engineering**: Extracted 140-dimensional audio features (MFCCs, mel-spectrograms, chroma) via Librosa.
+- **Architecture**: Developed a 6-layer Causal Transformer Decoder (~30M parameters) that performs audio-conditioned autoregressive token generation.
+- **Results**: Best validation loss of `2.5525`. 
+
+To prevent the model from getting stuck in repetitive loops (a common issue in autoregressive models), I engineered a custom 5-layer anti-freeze diversity system, achieving 50–70% token diversity across 50+ test generations.
+
+## Full-Stack Deployment Architecture
+
+Building the model was only half the battle. To make it accessible, I deployed a three-tier cloud platform:
+
+1. **Frontend (Next.js 14)**: A highly interactive, Vercel-hosted UI built with React, Tailwind CSS, and Framer Motion.
+2. **Backend Engine (FastAPI & Docker)**: The PyTorch inference engine was containerized via Docker and deployed on Render. It handles asynchronous video generation tasks using a robust queue system.
+3. **Database (MongoDB Atlas)**: JWT-secured storage for user authentication, generation metadata, and video retrieval links.
+
+### Performance & Metrics
+- Generates 720×720, 30FPS MP4 videos in just **15–30 seconds** on consumer hardware.
+- Achieves **~85% beat detection accuracy** (measured via Librosa BPM alignment algorithms).
+
+## Academic Foundation
+
+This project was built upon rigorous academic foundations. I designed 6 formal algorithms, drafted 9 detailed UML diagrams for the full-stack architecture, and cited 30 academic references, primarily drawing upon:
+- *Attention Is All You Need* (Vaswani et al., 2017)
+- *AIST++: A New Dataset for 3D Dance Generation* (Li et al., 2021)
+- *Bailando: 3D Dance Generation via Actor-Critic GPT with Choreographic Memory* (Siyao et al., 2022)
+
+## Future Work
+Future iterations aim to deploy diffusion models for finer-grained kinematic control and integrate real-time WebGL rendering in the browser to replace pre-rendered MP4 outputs.

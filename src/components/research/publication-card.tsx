@@ -51,7 +51,7 @@ export function PublicationCard({ publication }: PublicationCardProps) {
 
       <div className="mb-6 pb-6 border-b border-white/[0.08]">
         <p className="text-sm text-[#71717A] italic">
-          Published in {publication.venue}
+          Presented in {publication.venue}
         </p>
       </div>
 

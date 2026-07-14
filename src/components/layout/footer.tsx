@@ -25,7 +25,6 @@ const footerNav = [
   {
     label: "Content",
     links: [
-      { label: "Blog", href: "/blog" },
       { label: "Contact", href: "/contact" },
       { label: "Privacy", href: "/privacy" },
     ],

@@ -11,7 +11,7 @@ import { GlowCard } from "@/components/ui/glow-card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MagneticButton } from "@/components/animations/magnetic-button";
-import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Send, CheckCircle, AlertCircle, Loader2, Phone, Mail, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function ContactSection() {
@@ -64,9 +64,45 @@ export function ContactSection() {
         description="Have a project in mind, looking for collaboration, or just want to say hi? I'd love to hear from you."
       />
 
-      <div className="mt-16 max-w-2xl mx-auto">
-        <FadeIn delay={0.1} direction="up">
-          <GlowCard className="p-8 md:p-10">
+      <div className="mt-16 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+        <div className="lg:col-span-2 space-y-8 flex flex-col justify-center">
+          <FadeIn delay={0.2} direction="right">
+            <h3 className="text-2xl font-semibold text-[#FAFAFA] mb-6">Contact Information</h3>
+            <div className="space-y-6">
+              <a href="tel:+919004979349" className="flex items-center gap-4 text-[#A1A1AA] hover:text-[#2563EB] transition-colors">
+                <div className="flex size-12 items-center justify-center rounded-full bg-white/5 border border-white/10 text-[#FAFAFA]">
+                  <Phone className="size-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-[#FAFAFA]">Phone</p>
+                  <p className="text-sm">+91 9004979349</p>
+                </div>
+              </a>
+              <a href="mailto:vsrigadi@gmail.com" className="flex items-center gap-4 text-[#A1A1AA] hover:text-[#2563EB] transition-colors">
+                <div className="flex size-12 items-center justify-center rounded-full bg-white/5 border border-white/10 text-[#FAFAFA]">
+                  <Mail className="size-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-[#FAFAFA]">Email</p>
+                  <p className="text-sm">vsrigadi@gmail.com</p>
+                </div>
+              </a>
+              <a href="https://linkedin.com/in/VinaySrigadi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#A1A1AA] hover:text-[#2563EB] transition-colors">
+                <div className="flex size-12 items-center justify-center rounded-full bg-white/5 border border-white/10 text-[#FAFAFA]">
+                  <Linkedin className="size-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-[#FAFAFA]">LinkedIn</p>
+                  <p className="text-sm">linkedin.com/in/VinaySrigadi</p>
+                </div>
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+
+        <div className="lg:col-span-3">
+          <FadeIn delay={0.1} direction="up">
+            <GlowCard className="p-8 md:p-10">
             {status === "success" ? (
               <div className="flex flex-col items-center justify-center text-center py-12 h-full min-h-[300px]">
                 <div className="flex size-16 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500 mb-6">
@@ -169,8 +205,9 @@ export function ContactSection() {
                 </MagneticButton>
               </form>
             )}
-          </GlowCard>
-        </FadeIn>
+            </GlowCard>
+          </FadeIn>
+        </div>
       </div>
     </Section>
   );

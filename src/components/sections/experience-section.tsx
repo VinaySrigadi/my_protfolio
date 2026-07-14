@@ -11,10 +11,10 @@ export function ExperienceSection() {
   return (
     <Section id="experience" spacing="lg">
       <SectionHeading 
-        eyebrow="Experience"
-        title="Professional Journey"
-        gradientWord="Journey"
-        description="A timeline of my professional roles, internships, and key contributions to the industry."
+        eyebrow="Internship Experience"
+        title="Internship Experience"
+        gradientWord="Experience"
+        description="A timeline of my internships and key contributions to the industry."
       />
 
       <div className="mt-16 max-w-4xl mx-auto">

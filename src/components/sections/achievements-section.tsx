@@ -33,19 +33,19 @@ export function AchievementsSection() {
             <FadeIn key={achievement.id} delay={idx * 0.1} direction="up">
               <GlowCard className="h-full p-6 flex flex-col">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="flex size-10 items-center justify-center rounded-full bg-[#2563EB]/10 text-[#2563EB]">
+                  <div className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Icon className="size-5" />
                   </div>
-                  <div className="text-sm font-medium text-[#A1A1AA] bg-white/5 px-2.5 py-1 rounded-full border border-white/10">
+                  <div className="text-sm font-medium text-muted-foreground bg-muted/30 px-2.5 py-1 rounded-full border border-border">
                     {achievement.date}
                   </div>
                 </div>
                 
-                <h3 className="text-lg font-semibold text-[#FAFAFA] mb-2 leading-tight">
+                <h3 className="text-lg font-semibold text-foreground mb-2 leading-tight">
                   {achievement.title}
                 </h3>
                 
-                <p className="text-sm text-[#A1A1AA] leading-relaxed flex-grow">
+                <p className="text-sm text-muted-foreground leading-relaxed flex-grow">
                   {achievement.description}
                 </p>
               </GlowCard>

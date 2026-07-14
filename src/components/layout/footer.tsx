@@ -40,7 +40,7 @@ export function Footer() {
 
   return (
     <footer
-      className="border-t border-white/[0.08] bg-[#09090B]"
+      className="border-t border-white/[0.08] bg-background"
       aria-label="Site footer"
     >
       <Container>
@@ -50,7 +50,7 @@ export function Footer() {
             <div className="col-span-1 flex flex-col gap-4 md:col-span-2">
               <Link
                 href="/"
-                className="flex items-center gap-3 w-fit rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B]"
+                className="flex items-center gap-3 w-fit rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 aria-label={`${siteConfig.name} — home`}
               >
                 <span
@@ -62,12 +62,12 @@ export function Footer() {
                     .map((n) => n[0])
                     .join("")}
                 </span>
-                <span className="font-semibold text-sm text-[#FAFAFA]">
+                <span className="font-semibold text-sm text-foreground">
                   {siteConfig.author.name}
                 </span>
               </Link>
 
-              <p className="max-w-xs text-sm leading-relaxed text-[#A1A1AA]">
+              <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
                 {siteConfig.title}. Building intelligent systems at the
                 intersection of AI research and production engineering.
               </p>
@@ -85,10 +85,10 @@ export function Footer() {
                       aria-label={link.label}
                       className={cn(
                         "flex size-8 items-center justify-center rounded-lg",
-                        "border border-white/10 bg-white/5 text-[#A1A1AA]",
+                        "border border-border bg-muted/30 text-muted-foreground",
                         "transition-colors duration-200",
-                        "hover:border-white/20 hover:bg-white/10 hover:text-[#FAFAFA]",
-                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B]"
+                        "hover:border-border/80 hover:bg-muted/50 hover:text-foreground",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                       )}
                     >
                       <Icon className="size-3.5" />
@@ -101,7 +101,7 @@ export function Footer() {
             {/* Nav columns */}
             {footerNav.map((group) => (
               <div key={group.label} className="flex flex-col gap-3">
-                <h3 className="text-xs font-semibold uppercase tracking-widest text-[#A1A1AA]">
+                <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   {group.label}
                 </h3>
                 <nav aria-label={`${group.label} links`}>
@@ -110,7 +110,7 @@ export function Footer() {
                       <li key={link.href}>
                         <Link
                           href={link.href}
-                          className="text-sm text-[#A1A1AA] transition-colors duration-200 hover:text-[#FAFAFA] focus-visible:outline-none focus-visible:underline"
+                          className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-none focus-visible:underline"
                         >
                           {link.label}
                         </Link>
@@ -125,14 +125,14 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] py-6 sm:flex-row">
-          <p className="text-xs text-[#A1A1AA]">
+          <p className="text-xs text-muted-foreground">
             &copy; {year} {siteConfig.author.name}. All rights reserved.
           </p>
-          <p className="text-xs text-[#A1A1AA]">
+          <p className="text-xs text-muted-foreground">
             Built with{" "}
-            <span className="text-[#FAFAFA]">Next.js 15</span>,{" "}
-            <span className="text-[#FAFAFA]">TypeScript</span> &{" "}
-            <span className="text-[#FAFAFA]">Tailwind CSS v4</span>
+            <span className="text-foreground">Next.js 15</span>,{" "}
+            <span className="text-foreground">TypeScript</span> &{" "}
+            <span className="text-foreground">Tailwind CSS v4</span>
           </p>
         </div>
       </Container>

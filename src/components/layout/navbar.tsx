@@ -32,7 +32,7 @@ export function Navbar() {
       className={cn(
         "fixed left-0 right-0 top-0 z-[200] transition-all duration-300",
         isScrolled
-          ? "border-b border-white/[0.08] bg-[#09090B]/80 backdrop-blur-xl"
+          ? "border-b border-white/[0.08] bg-background/80 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       )}
     >
@@ -41,7 +41,7 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B] rounded-md"
+            className="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
             aria-label={`${siteConfig.name} — home`}
           >
             {/* Monogram mark */}
@@ -56,7 +56,7 @@ export function Navbar() {
             </span>
 
             {/* Name */}
-            <span className="hidden font-semibold text-sm tracking-tight text-[#FAFAFA] sm:block">
+            <span className="hidden font-semibold text-sm tracking-tight text-foreground sm:block">
               {siteConfig.author.name}
             </span>
           </Link>
@@ -81,9 +81,9 @@ export function Navbar() {
               download
               className={cn(
                 "hidden items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-medium md:flex",
-                "bg-[#2563EB] text-white transition-all duration-200",
+                "bg-primary text-white transition-all duration-200",
                 "hover:bg-[#3b82f6] hover:shadow-lg hover:shadow-[#2563EB]/25",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B]"
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               )}
             >
               <Download className="size-3.5" aria-hidden="true" />

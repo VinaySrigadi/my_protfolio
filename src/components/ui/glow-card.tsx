@@ -64,7 +64,7 @@ export function GlowCard({
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       className={cn(
         "group relative overflow-hidden rounded-2xl",
-        "border border-white/[0.08] bg-[#18181B]",
+        "border border-white/[0.08] bg-surface",
         "transition-shadow duration-300",
         "hover:shadow-[0_0_40px_-8px] hover:shadow-primary/20",
         className

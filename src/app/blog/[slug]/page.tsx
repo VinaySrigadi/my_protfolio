@@ -96,11 +96,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* Article Header */}
-      <div className="relative border-b border-white/[0.08] bg-[#09090B] pt-24 md:pt-32">
+      <div className="relative border-b border-white/[0.08] bg-background pt-24 md:pt-32">
         <Container narrow className="pb-12 md:pb-16">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#A1A1AA] hover:text-[#FAFAFA] transition-colors mb-8 focus-visible:outline-none focus-visible:underline"
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-8 focus-visible:outline-none focus-visible:underline"
           >
             <ArrowLeft className="size-4" />
             Back to blog
@@ -117,12 +117,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[#FAFAFA] mb-6 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6 leading-tight">
             {post.frontmatter["title"]}
           </h1>
           
           {post.frontmatter["description"] && (
-            <p className="text-xl text-[#A1A1AA] leading-relaxed mb-8">
+            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
               {post.frontmatter["description"]}
             </p>
           )}
@@ -139,11 +139,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <Container narrow className="pt-12 md:pt-16">
         <div className="prose prose-invert prose-blue max-w-none 
           prose-headings:font-semibold prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl
-          prose-p:text-[#A1A1AA] prose-p:leading-relaxed
-          prose-a:text-[#2563EB] prose-a:no-underline hover:prose-a:underline
-          prose-strong:text-[#FAFAFA]
-          prose-code:text-[#FAFAFA] prose-code:bg-white/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
-          prose-pre:bg-[#18181B] prose-pre:border prose-pre:border-white/10
+          prose-p:text-muted-foreground prose-p:leading-relaxed
+          prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+          prose-strong:text-foreground
+          prose-code:text-foreground prose-code:bg-muted/50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
+          prose-pre:bg-surface prose-pre:border prose-pre:border-border
           [&_pre>code]:bg-transparent [&_pre>code]:p-0 [&_pre>code]:text-sm
         ">
           <MDXRemote 

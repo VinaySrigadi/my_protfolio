@@ -25,7 +25,7 @@ export function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="fixed inset-0 z-[700] flex flex-col items-center justify-center bg-[#09090B]"
+          className="fixed inset-0 z-[700] flex flex-col items-center justify-center bg-background"
           aria-label="Loading"
           role="status"
         >
@@ -62,7 +62,7 @@ export function LoadingScreen() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.4 }}
-            className="mt-8 font-mono text-xs tracking-[0.3em] text-[#A1A1AA] uppercase"
+            className="mt-8 font-mono text-xs tracking-[0.3em] text-muted-foreground uppercase"
           >
             Vinay Srigadi
           </motion.p>

@@ -48,7 +48,7 @@ export function SectionHeading({
         <span
           className={cn(
             "inline-flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.2em]",
-            "text-[#2563EB]"
+            "text-primary"
           )}
         >
           <span className="h-px w-6 bg-current" aria-hidden="true" />
@@ -60,7 +60,7 @@ export function SectionHeading({
       <h2
         id={id}
         className={cn(
-          "text-3xl font-semibold tracking-tight text-[#FAFAFA] sm:text-4xl lg:text-5xl"
+          "text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl"
         )}
       >
         {renderTitle()}
@@ -69,7 +69,7 @@ export function SectionHeading({
       {description && (
         <p
           className={cn(
-            "max-w-2xl text-base leading-relaxed text-[#A1A1AA] sm:text-lg",
+            "max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg",
             align === "center" && "mx-auto"
           )}
         >

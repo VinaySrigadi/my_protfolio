@@ -22,7 +22,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   if (!mounted) {
     return (
       <div
-        className={cn("size-9 rounded-lg bg-white/5", className)}
+        className={cn("size-9 rounded-lg bg-muted/30", className)}
         aria-hidden="true"
       />
     );
@@ -36,10 +36,10 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       className={cn(
         "flex size-9 items-center justify-center rounded-lg",
-        "border border-white/10 bg-white/5 text-[#A1A1AA]",
+        "border border-border bg-muted/30 text-muted-foreground",
         "transition-colors duration-200",
-        "hover:border-white/20 hover:bg-white/10 hover:text-[#FAFAFA]",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B]",
+        "hover:border-border/80 hover:bg-muted/50 hover:text-foreground",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         className
       )}
     >

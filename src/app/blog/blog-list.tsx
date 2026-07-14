@@ -75,7 +75,7 @@ export function BlogList({ posts }: BlogListProps) {
               setSearchQuery(e.target.value);
               setCurrentPage(1);
             }}
-            className="w-full bg-[#18181B] border border-white/10 rounded-xl py-3 pl-12 pr-4 text-[#FAFAFA] placeholder-[#71717A] focus:outline-none focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB] transition-colors"
+            className="w-full bg-surface border border-border rounded-xl py-3 pl-12 pr-4 text-foreground placeholder-[#71717A] focus:outline-none focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB] transition-colors"
           />
         </div>
 
@@ -88,8 +88,8 @@ export function BlogList({ posts }: BlogListProps) {
             }}
             className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
               activeTag === null
-                ? "bg-[#2563EB] text-white"
-                : "bg-white/5 text-[#A1A1AA] hover:bg-white/10 hover:text-[#FAFAFA]"
+                ? "bg-primary text-white"
+                : "bg-muted/30 text-muted-foreground hover:bg-muted/50 hover:text-foreground"
             }`}
           >
             All
@@ -103,8 +103,8 @@ export function BlogList({ posts }: BlogListProps) {
               }}
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
                 activeTag === tag
-                  ? "bg-[#2563EB] text-white"
-                  : "bg-white/5 text-[#A1A1AA] hover:bg-white/10 hover:text-[#FAFAFA]"
+                  ? "bg-primary text-white"
+                  : "bg-muted/30 text-muted-foreground hover:bg-muted/50 hover:text-foreground"
               }`}
             >
               {tag}
@@ -120,7 +120,7 @@ export function BlogList({ posts }: BlogListProps) {
             {paginatedPosts.map((post) => (
               <StaggerItem key={post.slug}>
                 <Link href={`/blog/${post.slug}`} className="block h-full group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] rounded-xl">
-                  <GlowCard className="p-6 h-full flex flex-col hover:border-white/20 transition-colors">
+                  <GlowCard className="p-6 h-full flex flex-col hover:border-border/80 transition-colors">
                     <div className="flex items-center gap-4 text-xs font-medium text-[#71717A] mb-4">
                       <span className="flex items-center gap-1.5">
                         <Calendar className="size-3.5" />
@@ -132,11 +132,11 @@ export function BlogList({ posts }: BlogListProps) {
                       </span>
                     </div>
                     
-                    <h3 className="text-xl font-semibold text-[#FAFAFA] mb-3 group-hover:text-[#2563EB] transition-colors line-clamp-2">
+                    <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
                       {post.title}
                     </h3>
                     
-                    <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6 line-clamp-3 flex-grow">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3 flex-grow">
                       {post.description}
                     </p>
                     
@@ -157,11 +157,11 @@ export function BlogList({ posts }: BlogListProps) {
           </StaggerChildren>
         ) : (
           <div className="flex flex-col items-center justify-center py-20 text-center">
-            <div className="size-16 rounded-full bg-white/5 flex items-center justify-center mb-4 text-[#71717A]">
+            <div className="size-16 rounded-full bg-muted/30 flex items-center justify-center mb-4 text-[#71717A]">
               <Search className="size-8" />
             </div>
-            <h3 className="text-xl font-semibold text-[#FAFAFA] mb-2">No articles found</h3>
-            <p className="text-[#A1A1AA]">
+            <h3 className="text-xl font-semibold text-foreground mb-2">No articles found</h3>
+            <p className="text-muted-foreground">
               We couldn&apos;t find any articles matching your search criteria.
             </p>
             <button
@@ -169,7 +169,7 @@ export function BlogList({ posts }: BlogListProps) {
                 setSearchQuery("");
                 setActiveTag(null);
               }}
-              className="mt-6 text-sm font-medium text-[#2563EB] hover:underline"
+              className="mt-6 text-sm font-medium text-primary hover:underline"
             >
               Clear filters
             </button>
@@ -183,7 +183,7 @@ export function BlogList({ posts }: BlogListProps) {
           <button
             onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
             disabled={currentPage === 1}
-            className="flex items-center justify-center size-10 rounded-lg bg-white/5 border border-white/10 text-[#FAFAFA] disabled:opacity-50 disabled:cursor-not-allowed hover:bg-white/10 transition-colors"
+            className="flex items-center justify-center size-10 rounded-lg bg-muted/30 border border-border text-foreground disabled:opacity-50 disabled:cursor-not-allowed hover:bg-muted/50 transition-colors"
             aria-label="Previous page"
           >
             <ChevronLeft className="size-5" />
@@ -196,8 +196,8 @@ export function BlogList({ posts }: BlogListProps) {
                 onClick={() => setCurrentPage(i + 1)}
                 className={`flex items-center justify-center size-10 rounded-lg border transition-colors ${
                   currentPage === i + 1
-                    ? "bg-[#2563EB]/10 border-[#2563EB]/30 text-[#2563EB] font-medium"
-                    : "bg-white/5 border-white/10 text-[#A1A1AA] hover:bg-white/10 hover:text-[#FAFAFA]"
+                    ? "bg-primary/10 border-[#2563EB]/30 text-primary font-medium"
+                    : "bg-muted/30 border-border text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                 }`}
               >
                 {i + 1}
@@ -208,7 +208,7 @@ export function BlogList({ posts }: BlogListProps) {
           <button
             onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
             disabled={currentPage === totalPages}
-            className="flex items-center justify-center size-10 rounded-lg bg-white/5 border border-white/10 text-[#FAFAFA] disabled:opacity-50 disabled:cursor-not-allowed hover:bg-white/10 transition-colors"
+            className="flex items-center justify-center size-10 rounded-lg bg-muted/30 border border-border text-foreground disabled:opacity-50 disabled:cursor-not-allowed hover:bg-muted/50 transition-colors"
             aria-label="Next page"
           >
             <ChevronRight className="size-5" />

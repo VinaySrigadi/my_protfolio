@@ -18,11 +18,11 @@ export function AboutSection() {
       <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
         <FadeIn delay={0.1} direction="up" className="md:col-span-2">
           <GlowCard className="h-full p-8 flex flex-col justify-center">
-            <h3 className="text-xl font-semibold text-[#FAFAFA] mb-4 flex items-center gap-2">
-              <Brain className="size-5 text-[#2563EB]" />
+            <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+              <Brain className="size-5 text-primary" />
               My Philosophy
             </h3>
-            <div className="space-y-4 text-[#A1A1AA] leading-relaxed">
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 The true power of Artificial Intelligence lies at the intersection of rigorous academic research and scalable software engineering. I specialize in training complex generative models and bringing them to production.
               </p>
@@ -39,21 +39,21 @@ export function AboutSection() {
         <FadeIn delay={0.2} direction="up" className="md:col-span-1">
           <div className="flex flex-col gap-6 h-full">
             <GlowCard className="p-6 flex-1 flex flex-col justify-center">
-               <h3 className="text-lg font-semibold text-[#FAFAFA] mb-4 flex items-center gap-2">
-                  <Terminal className="size-5 text-[#2563EB]" />
+               <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+                  <Terminal className="size-5 text-primary" />
                   Core Focus
                 </h3>
-                <ul className="mt-2 space-y-2 text-sm text-[#A1A1AA]">
+                <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center gap-2">
-                    <span className="size-1.5 rounded-full bg-[#2563EB]" />
+                    <span className="size-1.5 rounded-full bg-primary" />
                     Generative AI & LLMs
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="size-1.5 rounded-full bg-[#2563EB]" />
+                    <span className="size-1.5 rounded-full bg-primary" />
                     Computer Vision & LSTMs
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="size-1.5 rounded-full bg-[#2563EB]" />
+                    <span className="size-1.5 rounded-full bg-primary" />
                     Full-Stack Architecture
                   </li>
                 </ul>

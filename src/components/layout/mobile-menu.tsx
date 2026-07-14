@@ -31,10 +31,10 @@ export function MobileMenu() {
         aria-controls="mobile-nav"
         className={cn(
           "flex size-9 items-center justify-center rounded-lg",
-          "border border-white/10 bg-white/5 text-[#A1A1AA]",
-          "transition-colors hover:border-white/20 hover:bg-white/10 hover:text-[#FAFAFA]",
+          "border border-border bg-muted/30 text-muted-foreground",
+          "transition-colors hover:border-border/80 hover:bg-muted/50 hover:text-foreground",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]",
-          "focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B]",
+          "focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           "md:hidden"
         )}
       >
@@ -59,10 +59,10 @@ export function MobileMenu() {
       <SheetContent
         id="mobile-nav"
         side="right"
-        className="w-72 border-white/10 bg-[#09090B] p-0"
+        className="w-72 border-border bg-background p-0"
       >
         <SheetHeader className="border-b border-white/[0.08] px-6 py-4">
-          <SheetTitle className="text-left font-mono text-sm font-medium text-[#FAFAFA]">
+          <SheetTitle className="text-left font-mono text-sm font-medium text-foreground">
             {siteConfig.name}
           </SheetTitle>
         </SheetHeader>
@@ -85,10 +85,10 @@ export function MobileMenu() {
             onClick={() => setOpen(false)}
             className={cn(
               "flex w-full items-center justify-center gap-2 rounded-lg",
-              "bg-[#2563EB] px-4 py-3 text-sm font-medium text-white",
+              "bg-primary px-4 py-3 text-sm font-medium text-white",
               "transition-colors hover:bg-[#3b82f6]",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]",
-              "focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B]"
+              "focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             )}
           >
             <Download className="size-4" aria-hidden="true" />

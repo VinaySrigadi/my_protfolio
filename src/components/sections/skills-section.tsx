@@ -28,7 +28,7 @@ export function SkillsSection() {
 
       <div className="mt-12 flex flex-col items-center">
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 p-1 bg-white/5 border border-white/10 rounded-xl mb-8">
+        <div className="flex flex-wrap justify-center gap-2 p-1 bg-muted/30 border border-border rounded-xl mb-8">
           {categories.map((category: string) => (
             <button
               key={category.toString()}
@@ -36,14 +36,14 @@ export function SkillsSection() {
               className={cn(
                 "relative px-4 py-2 text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]",
                 activeCategory === category
-                  ? "text-[#FAFAFA]"
-                  : "text-[#A1A1AA] hover:text-[#FAFAFA] hover:bg-white/5"
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/30"
               )}
             >
               {activeCategory === category && (
                 <motion.div
                   layoutId="active-skill-tab"
-                  className="absolute inset-0 bg-[#2563EB]/20 border border-[#2563EB]/30 rounded-lg"
+                  className="absolute inset-0 bg-primary/20 border border-[#2563EB]/30 rounded-lg"
                   initial={false}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
@@ -69,13 +69,13 @@ export function SkillsSection() {
                   <div className="relative size-12 flex items-center justify-center grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100">
                     {/* SVG icon could go here based on skill.icon if available */}
                     {/* Using a placeholder circle for now */}
-                    <div className="size-8 rounded bg-white/10 group-hover:bg-[#2563EB]/20 transition-colors flex items-center justify-center font-mono font-bold text-[#A1A1AA] group-hover:text-[#2563EB]">
+                    <div className="size-8 rounded bg-muted/50 group-hover:bg-primary/20 transition-colors flex items-center justify-center font-mono font-bold text-muted-foreground group-hover:text-primary">
                       {skill.name[0]}
                     </div>
                   </div>
                   <div className="space-y-1">
-                    <p className="font-medium text-[#FAFAFA] text-sm">{skill.name}</p>
-                    <p className="text-xs text-[#2563EB] font-medium">{skill.level}</p>
+                    <p className="font-medium text-foreground text-sm">{skill.name}</p>
+                    <p className="text-xs text-primary font-medium">{skill.level}</p>
                   </div>
                 </GlowCard>
               ))}

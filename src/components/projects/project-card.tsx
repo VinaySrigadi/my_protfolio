@@ -18,7 +18,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
   return (
     <GlowCard className={cn("flex flex-col h-full", className)}>
       {/* Image container */}
-      <div className="relative aspect-video w-full overflow-hidden border-b border-white/[0.08] bg-[#09090B]">
+      <div className="relative aspect-video w-full overflow-hidden border-b border-white/[0.08] bg-background">
         {project.thumbnail ? (
           <Image
             src={project.thumbnail}
@@ -42,7 +42,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                 href={project.githubUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex size-8 items-center justify-center rounded-full bg-black/50 backdrop-blur-md text-white border border-white/10 transition-colors hover:bg-black/80 hover:text-[#2563EB]"
+                className="flex size-8 items-center justify-center rounded-full bg-black/50 backdrop-blur-md text-white border border-border transition-colors hover:bg-black/80 hover:text-primary"
                 aria-label="View source on GitHub"
               >
                 <Github className="size-4" />
@@ -53,7 +53,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                 href={project.demoUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex size-8 items-center justify-center rounded-full bg-black/50 backdrop-blur-md text-white border border-white/10 transition-colors hover:bg-black/80 hover:text-[#2563EB]"
+                className="flex size-8 items-center justify-center rounded-full bg-black/50 backdrop-blur-md text-white border border-border transition-colors hover:bg-black/80 hover:text-primary"
                 aria-label="View live project"
               >
                 <ExternalLink className="size-4" />
@@ -65,10 +65,10 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
       
       {/* Content */}
       <div className="flex flex-col flex-grow p-6">
-        <h3 className="text-xl font-semibold text-[#FAFAFA] mb-2 group-hover:text-[#2563EB] transition-colors">
+        <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
           {project.title}
         </h3>
-        <p className="text-[#A1A1AA] text-sm leading-relaxed mb-6 flex-grow">
+        <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
           {project.description}
         </p>
         
@@ -78,7 +78,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
             <TechBadge key={tech} label={tech} size="sm" />
           ))}
           {project.techStack.length > 4 && (
-            <span className="text-xs text-[#A1A1AA] flex items-center ml-1">
+            <span className="text-xs text-muted-foreground flex items-center ml-1">
               +{project.techStack.length - 4} more
             </span>
           )}

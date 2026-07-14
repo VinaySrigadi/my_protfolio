@@ -32,10 +32,10 @@ export function BackToTop() {
           className={cn(
             "fixed bottom-8 right-8 z-50",
             "flex size-10 items-center justify-center rounded-full",
-            "border border-white/10 bg-[#18181B]/80 backdrop-blur-sm",
-            "text-[#A1A1AA] shadow-lg transition-colors duration-200",
-            "hover:border-[#2563EB]/40 hover:bg-[#2563EB]/10 hover:text-[#FAFAFA]",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B]"
+            "border border-border bg-surface/80 backdrop-blur-sm",
+            "text-muted-foreground shadow-lg transition-colors duration-200",
+            "hover:border-[#2563EB]/40 hover:bg-primary/10 hover:text-foreground",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           )}
         >
           <ArrowUp className="size-4" aria-hidden="true" />

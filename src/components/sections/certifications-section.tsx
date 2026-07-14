@@ -24,13 +24,13 @@ export function CertificationsSection() {
         {certifications.map((cert) => (
           <StaggerItem key={cert.id}>
             <GlowCard className="p-6 h-full flex items-center gap-4 group">
-              <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#2563EB]/10 border border-[#2563EB]/20 text-[#2563EB]">
+              <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/10 border border-[#2563EB]/20 text-primary">
                 <Award className="size-6" />
               </div>
               
               <div className="flex-grow">
                   {cert.title}
-                <p className="text-sm text-[#A1A1AA] mt-1">{cert.issuer}</p>
+                <p className="text-sm text-muted-foreground mt-1">{cert.issuer}</p>
                 <p className="text-xs text-[#71717A] mt-1">Issued {cert.issuedDate}</p>
               </div>
 
@@ -39,7 +39,7 @@ export function CertificationsSection() {
                   href={cert.credentialUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/5 text-[#A1A1AA] transition-colors hover:bg-[#2563EB]/20 hover:text-[#2563EB]"
+                  className="flex size-8 shrink-0 items-center justify-center rounded-full bg-muted/30 text-muted-foreground transition-colors hover:bg-primary/20 hover:text-primary"
                   aria-label={`View ${cert.title} credential`}
                 >
                   <ExternalLink className="size-4" />

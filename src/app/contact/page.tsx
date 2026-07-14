@@ -10,7 +10,7 @@ export const metadata = generatePageMetadata({
 
 export default function ContactPage() {
   return (
-    <main aria-label="Contact page" className="min-h-dvh bg-[#09090B]">
+    <main aria-label="Contact page" className="min-h-dvh bg-background">
       <ContactSection />
     </main>
   );

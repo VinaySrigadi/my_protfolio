@@ -34,7 +34,7 @@ export default function ResearchPage() {
               ))}
             </StaggerChildren>
           ) : (
-            <div className="text-center py-24 text-[#A1A1AA]">
+            <div className="text-center py-24 text-muted-foreground">
               No publications available at the moment. Check back soon!
             </div>
           )}

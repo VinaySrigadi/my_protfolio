@@ -21,9 +21,9 @@ export function TechBadge({ label, className, size = "md" }: TechBadgeProps) {
     <span
       className={cn(
         "inline-flex items-center rounded-full font-mono font-medium",
-        "border border-white/10 bg-white/5",
-        "text-[#A1A1AA] transition-colors duration-200",
-        "hover:border-[#2563EB]/40 hover:bg-[#2563EB]/10 hover:text-[#FAFAFA]",
+        "border border-border bg-muted/30",
+        "text-muted-foreground transition-colors duration-200",
+        "hover:border-[#2563EB]/40 hover:bg-primary/10 hover:text-foreground",
         sizeClass,
         className
       )}

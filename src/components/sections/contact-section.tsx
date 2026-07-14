@@ -67,32 +67,32 @@ export function ContactSection() {
       <div className="mt-16 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
         <div className="lg:col-span-2 space-y-8 flex flex-col justify-center">
           <FadeIn delay={0.2} direction="right">
-            <h3 className="text-2xl font-semibold text-[#FAFAFA] mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-semibold text-foreground mb-6">Contact Information</h3>
             <div className="space-y-6">
-              <a href="tel:+919004979349" className="flex items-center gap-4 text-[#A1A1AA] hover:text-[#2563EB] transition-colors">
-                <div className="flex size-12 items-center justify-center rounded-full bg-white/5 border border-white/10 text-[#FAFAFA]">
+              <a href="tel:+919004979349" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors">
+                <div className="flex size-12 items-center justify-center rounded-full bg-muted/30 border border-border text-foreground">
                   <Phone className="size-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-[#FAFAFA]">Phone</p>
+                  <p className="text-sm font-medium text-foreground">Phone</p>
                   <p className="text-sm">+91 9004979349</p>
                 </div>
               </a>
-              <a href="mailto:vsrigadi@gmail.com" className="flex items-center gap-4 text-[#A1A1AA] hover:text-[#2563EB] transition-colors">
-                <div className="flex size-12 items-center justify-center rounded-full bg-white/5 border border-white/10 text-[#FAFAFA]">
+              <a href="mailto:vsrigadi@gmail.com" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors">
+                <div className="flex size-12 items-center justify-center rounded-full bg-muted/30 border border-border text-foreground">
                   <Mail className="size-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-[#FAFAFA]">Email</p>
+                  <p className="text-sm font-medium text-foreground">Email</p>
                   <p className="text-sm">vsrigadi@gmail.com</p>
                 </div>
               </a>
-              <a href="https://linkedin.com/in/VinaySrigadi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#A1A1AA] hover:text-[#2563EB] transition-colors">
-                <div className="flex size-12 items-center justify-center rounded-full bg-white/5 border border-white/10 text-[#FAFAFA]">
+              <a href="https://linkedin.com/in/VinaySrigadi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors">
+                <div className="flex size-12 items-center justify-center rounded-full bg-muted/30 border border-border text-foreground">
                   <Linkedin className="size-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-[#FAFAFA]">LinkedIn</p>
+                  <p className="text-sm font-medium text-foreground">LinkedIn</p>
                   <p className="text-sm">linkedin.com/in/VinaySrigadi</p>
                 </div>
               </a>
@@ -108,13 +108,13 @@ export function ContactSection() {
                 <div className="flex size-16 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500 mb-6">
                   <CheckCircle className="size-8" />
                 </div>
-                <h3 className="text-2xl font-semibold text-[#FAFAFA] mb-2">Message Sent!</h3>
-                <p className="text-[#A1A1AA]">
+                <h3 className="text-2xl font-semibold text-foreground mb-2">Message Sent!</h3>
+                <p className="text-muted-foreground">
                   Thank you for reaching out. I&apos;ll get back to you as soon as possible.
                 </p>
                 <button 
                   onClick={() => setStatus("idle")}
-                  className="mt-8 text-sm font-medium text-[#2563EB] hover:underline"
+                  className="mt-8 text-sm font-medium text-primary hover:underline"
                 >
                   Send another message
                 </button>
@@ -123,23 +123,23 @@ export function ContactSection() {
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium text-[#FAFAFA]">Name</label>
+                    <label htmlFor="name" className="text-sm font-medium text-foreground">Name</label>
                     <Input 
                       id="name" 
                       placeholder="John Doe" 
-                      className={cn("bg-white/5 border-white/10 focus-visible:ring-[#2563EB]", errors.name && "border-red-500/50 focus-visible:ring-red-500")}
+                      className={cn("bg-muted/30 border-border focus-visible:ring-[#2563EB]", errors.name && "border-red-500/50 focus-visible:ring-red-500")}
                       {...register("name")} 
                       disabled={status === "submitting"}
                     />
                     {errors.name && <p className="text-xs text-red-400 mt-1">{errors.name.message}</p>}
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-[#FAFAFA]">Email</label>
+                    <label htmlFor="email" className="text-sm font-medium text-foreground">Email</label>
                     <Input 
                       id="email" 
                       type="email" 
                       placeholder="john@example.com" 
-                      className={cn("bg-white/5 border-white/10 focus-visible:ring-[#2563EB]", errors.email && "border-red-500/50 focus-visible:ring-red-500")}
+                      className={cn("bg-muted/30 border-border focus-visible:ring-[#2563EB]", errors.email && "border-red-500/50 focus-visible:ring-red-500")}
                       {...register("email")} 
                       disabled={status === "submitting"}
                     />
@@ -148,11 +148,11 @@ export function ContactSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-medium text-[#FAFAFA]">Subject</label>
+                  <label htmlFor="subject" className="text-sm font-medium text-foreground">Subject</label>
                   <Input 
                     id="subject" 
                     placeholder="Project Inquiry" 
-                    className={cn("bg-white/5 border-white/10 focus-visible:ring-[#2563EB]", errors.subject && "border-red-500/50 focus-visible:ring-red-500")}
+                    className={cn("bg-muted/30 border-border focus-visible:ring-[#2563EB]", errors.subject && "border-red-500/50 focus-visible:ring-red-500")}
                     {...register("subject")} 
                     disabled={status === "submitting"}
                   />
@@ -160,11 +160,11 @@ export function ContactSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-[#FAFAFA]">Message</label>
+                  <label htmlFor="message" className="text-sm font-medium text-foreground">Message</label>
                   <Textarea 
                     id="message" 
                     placeholder="Hello Vinay, I'd like to discuss..." 
-                    className={cn("min-h-[150px] bg-white/5 border-white/10 focus-visible:ring-[#2563EB] resize-y", errors.message && "border-red-500/50 focus-visible:ring-red-500")}
+                    className={cn("min-h-[150px] bg-muted/30 border-border focus-visible:ring-[#2563EB] resize-y", errors.message && "border-red-500/50 focus-visible:ring-red-500")}
                     {...register("message")} 
                     disabled={status === "submitting"}
                   />
@@ -183,10 +183,10 @@ export function ContactSection() {
                     type="submit"
                     disabled={status === "submitting"}
                     className={cn(
-                      "w-full flex items-center justify-center gap-2 rounded-lg bg-[#2563EB] px-6 py-3",
+                      "w-full flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3",
                       "text-sm font-medium text-white transition-all duration-200",
                       "hover:bg-[#3b82f6] hover:shadow-lg hover:shadow-[#2563EB]/25",
-                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B]",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                       "disabled:opacity-70 disabled:cursor-not-allowed"
                     )}
                   >

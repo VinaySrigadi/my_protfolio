@@ -36,9 +36,7 @@ const nextConfig: NextConfig = {
       }
     ],
   },
-  experimental: {
-    mdxRs: true,
-  },
+  experimental: {},
 };
 
 export default bundleAnalyzer(withMDX(nextConfig));

@@ -10,7 +10,7 @@ export const metadata = generatePageMetadata({
 
 export default function ExperiencePage() {
   return (
-    <main aria-label="Experience page" className="min-h-dvh bg-[#09090B]">
+    <main aria-label="Experience page" className="min-h-dvh bg-background">
       <ExperienceSection />
     </main>
   );

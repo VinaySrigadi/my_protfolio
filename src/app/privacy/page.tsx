@@ -11,15 +11,15 @@ export default function PrivacyPage() {
   return (
     <main
       aria-label="Privacy policy page"
-      className="min-h-dvh bg-[#09090B] py-24 px-6"
+      className="min-h-dvh bg-background py-24 px-6"
     >
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-semibold text-[#FAFAFA] mb-8">
+        <h1 className="text-3xl font-semibold text-foreground mb-8">
           Privacy Policy
         </h1>
-        <div className="space-y-6 text-[#A1A1AA] leading-relaxed">
+        <div className="space-y-6 text-muted-foreground leading-relaxed">
           <section>
-            <h2 className="text-xl font-medium text-[#FAFAFA] mb-3">
+            <h2 className="text-xl font-medium text-foreground mb-3">
               Information Collected
             </h2>
             <p>
@@ -29,7 +29,7 @@ export default function PrivacyPage() {
             </p>
           </section>
           <section>
-            <h2 className="text-xl font-medium text-[#FAFAFA] mb-3">
+            <h2 className="text-xl font-medium text-foreground mb-3">
               Analytics
             </h2>
             <p>
@@ -38,7 +38,7 @@ export default function PrivacyPage() {
             </p>
           </section>
           <section>
-            <h2 className="text-xl font-medium text-[#FAFAFA] mb-3">
+            <h2 className="text-xl font-medium text-foreground mb-3">
               Cookies
             </h2>
             <p>
@@ -47,7 +47,7 @@ export default function PrivacyPage() {
             </p>
           </section>
           <section>
-            <h2 className="text-xl font-medium text-[#FAFAFA] mb-3">
+            <h2 className="text-xl font-medium text-foreground mb-3">
               Contact
             </h2>
             <p>
